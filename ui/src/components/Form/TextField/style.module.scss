@@ -1,0 +1,5 @@
+@import 'src/scss/lib';
+
+.container {
+  @extend %clear-field-container;
+}

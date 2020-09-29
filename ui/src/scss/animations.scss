@@ -1,0 +1,64 @@
+@keyframes come-together {
+  0% {
+    letter-spacing: 0.5vw;
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    letter-spacing: 0.3vw;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  0% {
+    letter-spacing: 0.5vw;
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    letter-spacing: 0.3vw;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes undim-sliding-down {
+  0% {
+    opacity: 0;
+    transform: translate(0, -10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(360deg); }
+}
+
+%working {
+  &::after {
+    animation: ellipsis steps(4, end) 900ms infinite;
+    content: '\2026'; /* ascii code for the ellipsis character */
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    width: 0;
+  }
+}
+
+@keyframes ellipsis {
+  to {
+    width: 20px;
+  }
+}
+
+@keyframes conveyer-belt {
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,14 @@
+#+title: Type[ORM|Graphql] Playground
+
+Simple application I built to try out some things with some cool technologies
+like:
+1. Graphql
+2. TypeORM
+3. TypeGraphql
+4. Postgres
+5. Redis (for sessions)
+
+This is a very simple application, which allow user to:
+1. Signup
+2. Signin
+3. Sign out

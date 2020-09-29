@@ -1,0 +1,124 @@
+@import 'src/scss/lib';
+
+.container {
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-top: 66px;
+  position: relative;
+}
+
+.header {
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  left: 0;
+  padding: 0 2em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: border-bottom 150ms ease 0s, top 250ms ease 0s, background-color 300ms ease 0s;
+  z-index: 2;
+
+  nav {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: 14px;
+    height: 66px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+
+  .brand {
+    color: $color-text-bright1;
+    font: inherit;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .logo {
+    margin: 0 4px;
+    width: 0.8em;
+  }
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7em;
+  padding: 0 2em;
+  text-align: center;
+
+  @media(max-width: $md) {
+    margin-top: 100px;
+  }
+
+  @media(max-width: $sm) {
+    margin-top: 60px;
+  }
+}
+
+.super-logo {
+  animation: spin 20s linear infinite;
+  animation-delay: 1.4s;
+  margin-bottom: 0.5em;
+
+  width: 5em;
+}
+
+.brand-name {
+  @extend %animate;
+  animation-name: come-together;
+
+  h4 {
+    color: $color-cta;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: normal;
+    line-height: 1.22em;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+  }
+}
+
+.hero {
+  @extend %animate;
+  animation-name: undim-sliding-down;
+  color: $color-text-bright1;
+  margin-bottom: 16px;
+
+  h1 {
+    font-size: 4.13rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    max-width: 900px;
+
+    @media(max-width: $sm) {
+      font-size: 2.8em;
+    }
+  }
+}
+
+.brief {
+  @extend %animate;
+  animation-delay: 0.4s;
+  animation-name: undim-sliding-down;
+
+  p {
+    color: $color-text-dim1;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    max-width: 720px;
+
+    @media(max-width: $sm) {
+      font-size: 1.2rem;
+    }
+  }
+}

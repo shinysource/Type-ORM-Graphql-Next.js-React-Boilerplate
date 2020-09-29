@@ -43,7 +43,6 @@ const Index = () => {
   };
 
   const handleSendOtp = async (email: string) => {
-    console.warn('--------eee', email);
     await resetPasswordOtp(email);
   };
 
@@ -60,7 +59,7 @@ const Index = () => {
     <WithUser inverted={true} redirectPath={user ? '/dashboard' : '/login'}>
       <Head>
         <link rel="shortcut icon" href="/assets/images/app-logo.svg" />
-        <title>{config.appName}</title>
+        <title>{`Login - ${config.appName}`}</title>
       </Head>
 
       <FullPageLayout className={c('container')}>

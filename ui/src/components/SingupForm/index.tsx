@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Formik, FormikProps, FormikHelpers } from 'formik';
+import { Formik, FormikHelpers, FormikProps } from 'formik';
 import Link from 'next/link';
 import * as Yup from 'yup';
 

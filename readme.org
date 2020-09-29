@@ -1,14 +1,50 @@
-#+title: Type[ORM|Graphql] Playground
+#+title: Type[ORM|Graphql] | Next.js | React Boilerplate
 
-Simple application I built to try out some things with some cool technologies
-like:
+Boilerplate code for building applications with:
 1. Graphql
 2. TypeORM
 3. TypeGraphql
 4. Postgres
 5. Redis (for sessions)
+6. Next.js/React (without Apollo)
 
 This is a very simple application, which allow user to:
 1. Signup
 2. Signin
 3. Sign out
+
+This can be an effective boilerplate code, to very rapidly bootstrap a
+full-stack project.
+
+** Features
+
+1. NoSQL like development workflow but with all the goodness of PostgreSQL using
+   TypeORM
+2. Rapidly created graphql APIs with TypeGraphql
+3. SEO friendly (with SSR) highly optimized frontend with Next.js
+4. Zero-touch development environment setup with docker-compose
+5. Completely fully dockerized services for easy deployment on any cloud
+6. Ergonomic usage of Redux. All the cool redux benefits with very little
+   boilerplate
+7. Smart usage of SCSS modules for component level style isolation, as well as
+   application level theme support
+
+** Usage
+
+To start the application, simply run
+
+#+begin_src bash
+docker-compose up
+#+end_src
+
+This will setup all the required dependencies for frontend, backend, database as
+well as redis, and start the UI on http://localhost:3000, and graphql API on
+http://localhost:4000
+
+** Coming up (maybe)
+- [ ] Hasura integration for fully automated CRUD graphql APIs
+- [ ] An application gateway for consolidated development experience
+- [ ] Devops automation with Github actions
+- [ ] Storybooks for every component
+- [ ] Components powered by state machines
+- [ ] CLI for ongoing scaffolding and maintenance of the application

@@ -45,7 +45,7 @@ const Signup: React.FC<FormikProps<SignUpFormValues>> = (p) => {
 
         <button className={c('save-button')} type="submit" disabled={p.isSubmitting}>
           <div className={c({ 'saving-in': p.isSubmitting })}>
-            {p.isSubmitting ? 'Save' : 'Saving'}
+            {p.isSubmitting ? 'Saving' : 'Save'}
             <span />
           </div>
         </button>

@@ -50,6 +50,7 @@ services:
       SERVER_GRAPHQL_URL: "http://localhost:4000/v1/graphql"
     ports:
       - 3000:80
+      - 6006:6006
     volumes:
       - ./ui:/app
       - /app/node_modules

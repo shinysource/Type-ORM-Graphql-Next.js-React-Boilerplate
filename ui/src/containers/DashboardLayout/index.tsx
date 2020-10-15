@@ -56,7 +56,7 @@ const Index: React.FC<LayoutProps> = (p) => {
 
           <div className={c('footer')}>
             <span className={c('feddback-container')}>
-              <span className={c('feedback-text')}></span>
+              <span className={c('feedback-text')}/>
             </span>
           </div>
         </div>

@@ -1,11 +1,12 @@
-import React from 'react';
 import c from 'classnames';
+import React from 'react';
 import { MdCheckCircle, MdClose, MdError } from 'react-icons/md';
 import { FlashMessage } from 'src/duck/flashMessages';
 
 import s from './style.module.scss';
 
 export interface FlashMessageProps {
+  /* Messages to show */
   messages: FlashMessage[];
   onClose: (id: string) => void;
 }
@@ -15,8 +16,8 @@ const Message: React.FC<{ message: FlashMessage } & Pick<FlashMessageProps, 'onC
     p.message.type === 'success' ? (
       <MdCheckCircle className={c(s['flash-icon'])} />
     ) : (
-        <MdError className={c(s['flash-icon'])} />
-      );
+      <MdError className={c(s['flash-icon'])} />
+    );
 
   return (
     <div className={s['message-container']}>

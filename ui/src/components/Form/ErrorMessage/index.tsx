@@ -1,4 +1,5 @@
 import Tippy from '@tippyjs/react';
+import React from 'react';
 import { AiFillExclamationCircle } from 'react-icons/ai';
 
 import c from './style.module.scss';

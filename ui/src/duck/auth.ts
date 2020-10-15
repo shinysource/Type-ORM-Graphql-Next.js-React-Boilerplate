@@ -8,10 +8,10 @@ import {
   login,
   LoginPayload,
   logout,
+  sendPasswordResetOTP,
   singup,
   SingupPayload,
   User,
-  sendPasswordResetOTP,
 } from 'src/entities/User';
 
 export interface AuthState {

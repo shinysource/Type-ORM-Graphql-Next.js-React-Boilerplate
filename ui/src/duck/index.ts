@@ -2,7 +2,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 import { combineReducers, Reducer } from 'redux';
 
 import auth from './auth';
-import flashMessages from './flashMessages';
+import flashMessages from 'src/components/FlashMessages/duck';
 
 const reducer = combineReducers({
   [auth.name]: auth.reducer,

@@ -1,42 +1,40 @@
-import c from 'classnames';
-import React from 'react';
-import { MdCheckCircle, MdClose, MdError } from 'react-icons/md';
-import { FlashMessage } from 'src/duck/flashMessages';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { hideFlashMessage } from './duck';
 
-import s from './style.module.scss';
+import FlashMessage, { FlashMessageType } from './FlashMessage';
 
-export interface FlashMessageProps {
-  /* Messages to show */
-  messages: FlashMessage[];
-  onClose: (id: string) => void;
+export interface FlashMessagesProps {
+  /**
+   * Array of `FlashMessage`s to show. Usually obtained from state.
+   */
+  messages: FlashMessageType[];
 }
 
-const Message: React.FC<{ message: FlashMessage } & Pick<FlashMessageProps, 'onClose'>> = (p) => {
-  const Icon =
-    p.message.type === 'success' ? (
-      <MdCheckCircle className={c(s['flash-icon'])} />
-    ) : (
-      <MdError className={c(s['flash-icon'])} />
-    );
+/**
+ * Convinience wrapper to easily integrate FlashMessages in a React application.
+ *
+ * ## Usage
+ * - Render `FlashMessages` component with appropriate styles (e.g fixed position at bottom right is popular)
+ * - Add reducer exported by FlashMessage duck to your root reducer
+ * - Use `useFlash` hook to show a flash message from anywhere in the application
+ */
+const FlashMessages: React.FC<FlashMessagesProps> = (p) => {
+  const dispatch = useDispatch();
+  const handleClose = useCallback(
+    (id) => {
+      dispatch(hideFlashMessage(id));
+    },
+    [dispatch],
+  );
 
   return (
-    <div className={s['message-container']}>
-      <div className={c(s['status-icon'], s[p.message.type])}>{Icon}</div>
-
-      <div className={s.message}>
-        <div className={s.title}>{p.message.title}</div>
-        <div className={s.body}>{p.message.body}</div>
-      </div>
-
-      <MdClose className={s['close-icon']} onClick={() => p.onClose(p.message.id)} title="Close" />
-    </div>
+    <>
+      {p.messages.map((m) => (
+        <FlashMessage key={m.id} onClose={handleClose} {...m} />
+      ))}
+    </>
   );
-};
-
-const FlashMessages: React.FC<FlashMessageProps> = (p) => {
-  const messages = p.messages.map((m) => <Message key={m.id} message={m} onClose={p.onClose} />);
-
-  return <div className={s.container}>{messages}</div>;
 };
 
 export default FlashMessages;

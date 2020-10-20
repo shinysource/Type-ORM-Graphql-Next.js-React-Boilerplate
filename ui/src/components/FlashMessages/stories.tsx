@@ -1,36 +1,33 @@
-import React from 'react';
-
+import { configureStore } from '@reduxjs/toolkit';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import FlashMessage, { FlashMessageProps } from './index';
+import { Provider } from 'react-redux';
+import React from 'react';
+import flashMessages from './duck';
+import FlashMessages, { FlashMessagesProps as FlashMessageListProps } from './index';
+import { FlashMessageProps } from './FlashMessage';
+import { Success as FlashMessageStory } from './FlashMessage/stories';
+
+const Template: Story<FlashMessageListProps> = (args) => <FlashMessages {...args} />;
+export const FMStories = Template.bind({});
+FMStories.storyName = 'FlashMessages';
+FMStories.args = {
+  messages: [FlashMessageStory.args as FlashMessageProps],
+};
+
+const store = configureStore({
+  reducer: () => ({
+    flashMessages: flashMessages.reducer,
+  }),
+});
 
 export default {
-  argTypes: {
-    body: { control: { type: 'text' } },
-    title: { control: { type: 'text' } },
-    type: { control: { type: 'select', options: ['error', 'success'] } },
-  },
-  component: FlashMessage,
-  title: 'FlashMessage',
+  component: FlashMessages,
+  decorators: [
+    (Stories) => (
+      <Provider store={store}>
+        <Stories />
+      </Provider>
+    ),
+  ],
+  title: 'FlashMessages',
 } as Meta;
-
-// We create a “template” of how args map to rendering
-const Template: Story<FlashMessageProps> = (args) => (
-  <FlashMessage messages={[{ ...args, id: '1' }]} />
-);
-
-export const Success = Template.bind({});
-Success.args = {
-  body: '',
-  title: 'Lol',
-  type: 'success',
-};
-
-export const Error = Template.bind({});
-Error.args = { title: 'Some error', type: 'error' };
-
-export const withContent = Template.bind({});
-withContent.args = {
-  body: 'Your error message',
-  title: 'Error',
-  type: 'error',
-};

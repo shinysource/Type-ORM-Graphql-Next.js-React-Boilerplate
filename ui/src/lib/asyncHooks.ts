@@ -2,7 +2,7 @@ import { AsyncThunkAction, unwrapResult } from '@reduxjs/toolkit';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useFlash } from 'src/duck/flashMessages';
+import { useFlash } from 'src/components/FlashMessages/duck';
 
 interface Options {
   rethrowError?: boolean;

@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux';
 import setTimeoutP from 'src/lib/setTimeoutP';
 
 export interface FlashMessage {
+  /**
+   * Every FlashMessage must have a unique `id` to identify it in state.
+   */
   id: string;
   title: string;
   body?: string;

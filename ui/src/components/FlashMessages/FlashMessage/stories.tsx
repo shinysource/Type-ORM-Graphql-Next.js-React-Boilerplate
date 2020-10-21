@@ -7,8 +7,8 @@ const Template: Story<FlashMessageProps> = (args) => <FlashMessage {...args} />;
 
 export const Intro = Template.bind({});
 Intro.args = {
-  id: '1',
   body: '',
+  id: '1',
   title: 'Flash message title',
   type: 'info',
 };

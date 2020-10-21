@@ -27,14 +27,9 @@ const FlashMessages: React.FC<FlashMessagesProps> = (p) => {
     },
     [dispatch],
   );
+  const messages = p.messages.map((m) => <FlashMessage key={m.id} onClose={handleClose} {...m} />);
 
-  return (
-    <>
-      {p.messages.map((m) => (
-        <FlashMessage key={m.id} onClose={handleClose} {...m} />
-      ))}
-    </>
-  );
+  return <>{messages}</>;
 };
 
 export default FlashMessages;

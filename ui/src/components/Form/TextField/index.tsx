@@ -6,17 +6,32 @@ import ErrorMessage from 'src/components/Form/ErrorMessage';
 
 import s from './style.module.scss';
 
-interface TextFieldProps {
+export interface TextFieldProps {
+  /**
+   * CSS class given to the actual <input /> element
+   */
   name: string;
   className?: string;
+  /**
+   * CSS class given to the actual <input /> element
+   */
   inputClassName?: string;
   placeholder?: string;
+  /**
+   * CSS class given to the actual <input /> element
+   */
   inputRef?: MutableRefObject<HTMLInputElement | null>;
   tabIndex?: number;
   type?: string;
   onkeyDown?: any;
 }
 
+/**
+ * Input field for Formik forms. It must be used inside a formik context.
+ *
+ * *Note:* Errors are considered only after the field is touched (focused and then
+ * unfocused) at lest once.
+ */
 const TextField: React.FC<TextFieldProps & { formik: FormikContextType<{}> }> = ({
   formik,
   ...p

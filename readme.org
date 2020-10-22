@@ -45,6 +45,6 @@ http://localhost:4000
 - [ ] Hasura integration for fully automated CRUD graphql APIs
 - [ ] An application gateway for consolidated development experience
 - [ ] Devops automation with Github actions
-- [ ] Storybooks for every component
+- [X] Storybooks for components
 - [ ] Components powered by state machines
 - [ ] CLI for ongoing scaffolding and maintenance of the application
